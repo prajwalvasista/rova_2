@@ -18,7 +18,7 @@ class _SellerHomeState extends State<SellerHome> {
         backgroundColor: AppColors.primary,
         leading: Image.asset(
           "assets/images/img.png",
-          width: 67,
+          width: 68,
           height: 62,
         ),
       ),
