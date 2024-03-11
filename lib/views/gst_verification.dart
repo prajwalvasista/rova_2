@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:rova_2/utils/constants/colors.dart';
+import 'package:rova_2/utils/constants/strings.dart';
 
 class GstVerification extends StatefulWidget {
   static const String appRoute = '/gst_verification';
@@ -14,6 +15,7 @@ class _GstVerificationState extends State<GstVerification> {
   int currentStep = 0;
   int selectedValue = 0;
   int selectedValue1 = 0;
+  int selectedStep = 1;
   SizedBox defaultGap = const SizedBox(height: 15);
   final _formkey = GlobalKey<FormState>();
   final _formkey1 = GlobalKey<FormState>();
@@ -23,6 +25,14 @@ class _GstVerificationState extends State<GstVerification> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          "Step $selectedStep",
+          style: const TextStyle(
+            fontSize: 32,
+            color: AppColors.textColor,
+          ),
+        ),
         backgroundColor: AppColors.primary,
       ),
       body: Theme(
@@ -68,7 +78,7 @@ class _GstVerificationState extends State<GstVerification> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                "GST Verification",
+                CommonStrings.verification,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20,
@@ -80,7 +90,7 @@ class _GstVerificationState extends State<GstVerification> {
                 value: 0,
                 groupValue: selectedValue,
                 title: const Text(
-                  "I have a GST no.",
+                  CommonStrings.conformationGst,
                   style: TextStyle(
                     color: AppColors.headingColor,
                   ),
@@ -98,10 +108,10 @@ class _GstVerificationState extends State<GstVerification> {
                     RegExp gstPattern = RegExp(
                         r'\d{2}[A-Z]{5}\d{4}[A-Z]{1}[A-Z\d]{1}[Z]{1}[A-Z\d]{1}');
                     if (value == null || value.isEmpty) {
-                      return "Please enter GST number";
+                      return CommonStrings.validationGst;
                     }
                     if (!gstPattern.hasMatch(value)) {
-                      return "Please enter correct GST number";
+                      return CommonStrings.correctGstMessage;
                     } else {
                       return null;
                     }
@@ -115,7 +125,7 @@ class _GstVerificationState extends State<GstVerification> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
-                    hintText: "Enter GST no.",
+                    hintText: CommonStrings.gstHintText,
                     hintStyle: const TextStyle(
                       color: AppColors.hintTextColor,
                       fontSize: 16,
@@ -133,7 +143,7 @@ class _GstVerificationState extends State<GstVerification> {
                 value: 1,
                 groupValue: selectedValue,
                 title: const Text(
-                  "I don't have a GST no.",
+                  CommonStrings.dontHaveGst,
                   style: TextStyle(
                     color: AppColors.headingColor,
                   ),
@@ -154,7 +164,7 @@ class _GstVerificationState extends State<GstVerification> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                "PAN No.",
+                CommonStrings.panNumber,
                 style: TextStyle(
                   fontWeight: FontWeight.w700,
                   fontSize: 20,
@@ -163,7 +173,7 @@ class _GstVerificationState extends State<GstVerification> {
               ),
               defaultGap,
               const Text(
-                "Enter Your PAN No",
+                CommonStrings.askingPanNumber,
                 style: TextStyle(
                   color: AppColors.headingColor,
                   fontSize: 15,
@@ -177,10 +187,10 @@ class _GstVerificationState extends State<GstVerification> {
                   validator: (value) {
                     RegExp validatePan = RegExp(r'[A-Z]{5}[0-9]{4}[A-Z]{1}');
                     if (value == null || value.isEmpty) {
-                      return "Enter Your PAN Number";
+                      return CommonStrings.validationPanNumber;
                     }
                     if (!validatePan.hasMatch(value)) {
-                      return "Enter correct PAN Number";
+                      return CommonStrings.validationPanNumber1;
                     } else {
                       return null;
                     }
@@ -204,7 +214,7 @@ class _GstVerificationState extends State<GstVerification> {
               ),
               defaultGap,
               const Text(
-                "Upload PAN document",
+                CommonStrings.askingPanDoc,
                 style: TextStyle(
                   color: AppColors.headingColor,
                 ),
@@ -239,7 +249,7 @@ class _GstVerificationState extends State<GstVerification> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                "Store Name",
+                CommonStrings.storeName,
                 style: TextStyle(
                   color: AppColors.headingColor,
                   fontSize: 20,
@@ -247,7 +257,7 @@ class _GstVerificationState extends State<GstVerification> {
               ),
               defaultGap,
               const Text(
-                "Enter Your Store Name",
+                CommonStrings.askingStoreName,
                 style: TextStyle(
                   color: AppColors.headingColor,
                 ),
@@ -282,7 +292,7 @@ class _GstVerificationState extends State<GstVerification> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                "PickUp Address",
+                CommonStrings.pickUpAddress,
                 style: TextStyle(
                   color: AppColors.headingColor,
                   fontSize: 20,
@@ -290,7 +300,7 @@ class _GstVerificationState extends State<GstVerification> {
               ),
               const SizedBox(height: 20),
               const Text(
-                "Pin Code",
+                CommonStrings.pinCode,
                 style: TextStyle(
                   color: AppColors.tertiary,
                 ),
@@ -302,10 +312,10 @@ class _GstVerificationState extends State<GstVerification> {
                   validator: (value) {
                     RegExp pinCodeValidate = RegExp(r'^[1-9][0-9]{5}$');
                     if (value == null || value.isEmpty) {
-                      return "Enter Pin code";
+                      return CommonStrings.validatePinCode;
                     }
                     if (!pinCodeValidate.hasMatch(value)) {
-                      return "Enter correct pin code";
+                      return CommonStrings.enterCorrectPinCode;
                     } else {
                       return null;
                     }
@@ -327,7 +337,7 @@ class _GstVerificationState extends State<GstVerification> {
               ),
               defaultGap,
               const Text(
-                "City",
+                CommonStrings.city,
                 style: TextStyle(
                   color: AppColors.tertiary,
                 ),
@@ -340,10 +350,10 @@ class _GstVerificationState extends State<GstVerification> {
                     RegExp cityValidate =
                         RegExp(r'^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$');
                     if (value == null || value.isEmpty) {
-                      return "Enter City name";
+                      return CommonStrings.enterCityName;
                     }
                     if (!cityValidate.hasMatch(value)) {
-                      return "Please enter correct city ";
+                      return CommonStrings.enterCorrectCity;
                     } else {
                       return null;
                     }
@@ -365,7 +375,7 @@ class _GstVerificationState extends State<GstVerification> {
               ),
               defaultGap,
               const Text(
-                "State",
+                CommonStrings.state,
                 style: TextStyle(
                   color: AppColors.tertiary,
                 ),
@@ -390,7 +400,7 @@ class _GstVerificationState extends State<GstVerification> {
               ),
               defaultGap,
               const Text(
-                "Area,Street,Building no.",
+                CommonStrings.areaStreet,
                 style: TextStyle(
                   color: AppColors.tertiary,
                 ),
@@ -424,7 +434,7 @@ class _GstVerificationState extends State<GstVerification> {
           content: Column(
             children: [
               const Text(
-                "Choose Shipping Preferences",
+                CommonStrings.chooseShippingPreference,
                 style: TextStyle(
                   color: AppColors.headingColor,
                   fontSize: 20,
@@ -439,7 +449,7 @@ class _GstVerificationState extends State<GstVerification> {
                     title: const Text(
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      "You Store,Rova Shipping(Easy ship)",
+                      CommonStrings.rovaStore,
                       style: TextStyle(
                         fontWeight: FontWeight.w400,
                         color: AppColors.headingColor,
@@ -447,7 +457,7 @@ class _GstVerificationState extends State<GstVerification> {
                       ),
                     ),
                     subtitle: const Text(
-                      "You store and pack orders at you location.\n We pick them and deliver to customers",
+                      CommonStrings.packOrders,
                       style: TextStyle(
                         fontSize: 12,
                         color: AppColors.subtitleColor,
@@ -470,7 +480,7 @@ class _GstVerificationState extends State<GstVerification> {
                     title: const Text(
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      "You Store,(Easy ship)",
+                      CommonStrings.easyShip,
                       style: TextStyle(
                         fontWeight: FontWeight.w400,
                         color: AppColors.headingColor,
@@ -478,7 +488,7 @@ class _GstVerificationState extends State<GstVerification> {
                       ),
                     ),
                     subtitle: const Text(
-                      "You store and pack orders at you location.\n We pick them and deliver to customers",
+                      CommonStrings.packOrdersOne,
                       style: TextStyle(
                         fontSize: 12,
                         color: AppColors.subtitleColor,
