@@ -50,11 +50,11 @@ class _GstVerificationState extends State<GstVerification> {
               });
             }
           },
-          onStepCancel: () {
-            setState(() {
-              currentStep--;
-            });
-          },
+          onStepCancel: currentStep == 0
+              ? null
+              : () => setState(() {
+                    currentStep--;
+                  }),
         ),
       ),
     );
