@@ -9,6 +9,5 @@ class AppColors {
   static const hintTextColor = Color(0xffA3A3A3);
   static const headingColor = Color(0xff1B1C1E);
   static const teftFieldBorderColor = Color(0xff757474);
-  
   static const subtitleColor = Color(0xff7F7F7F);
 }
