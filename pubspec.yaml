@@ -64,6 +64,13 @@ flutter:
      - assets/images/img.png
      - assets/images/registration.png
      - assets/images/emoji.png
+     - assets/images/fertilizers.png
+     - assets/images/insectdecides.png
+     - assets/images/pesticides.png
+     - assets/images/plants.png
+     - assets/images/seeds.png
+     - assets/images/tractor.png
+     - assets/images/fireEmoji.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

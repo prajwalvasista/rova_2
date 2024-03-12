@@ -32,4 +32,12 @@ class CommonStrings {
   static const whatAreYouLookingFor = "What are u looking for ?";
   static const categories = "Categories";
   static const seeAll = "See all";
+  static const insectisides = "Insectisides";
+  static const fertilizers = "Fertilizers";
+  static const machinery = "Machinery";
+  static const seeds = "Seeds";
+  static const pesticides = "Pesticides";
+  static const plants = "Plants";
+  static const more = "More";
+  static const bestDeals = "Best deals";
 }

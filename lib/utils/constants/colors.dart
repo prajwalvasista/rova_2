@@ -14,4 +14,5 @@ class AppColors {
   static const hintTextFieldColor = Color(0xff98A2B3);
   static const prefixIconColor = Color(0xff2382AA);
   static const categoryTextColor = Color(0xff06161C);
+  static const categoryColor = Color(0xffE9F5FA);
 }
