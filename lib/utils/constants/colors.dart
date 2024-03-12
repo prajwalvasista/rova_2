@@ -10,4 +10,8 @@ class AppColors {
   static const headingColor = Color(0xff1B1C1E);
   static const teftFieldBorderColor = Color(0xff757474);
   static const subtitleColor = Color(0xff7F7F7F);
+  static const suffixIconColor = Color(0xffDEDEDE);
+  static const hintTextFieldColor = Color(0xff98A2B3);
+  static const prefixIconColor = Color(0xff2382AA);
+  static const categoryTextColor = Color(0xff06161C);
 }

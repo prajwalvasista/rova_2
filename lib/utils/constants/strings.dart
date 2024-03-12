@@ -29,4 +29,7 @@ class CommonStrings {
   static const easyShip = "You Store,(Easy ship)";
   static const packOrdersOne =
       "You store and pack orders at you location.\n We pick them and deliver to customers";
+  static const whatAreYouLookingFor = "What are u looking for ?";
+  static const categories = "Categories";
+  static const seeAll = "See all";
 }
